@@ -19,7 +19,8 @@ app = FastAPI(
 
 origins = [
     "http://localhost:3000",      
-    "http://localhost:5173",     
+    "http://localhost:5173",
+    "https://spoudazo-frontend.vercel.app",     
 ]
 
 app.add_middleware(
