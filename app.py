@@ -4,6 +4,13 @@ from chatbot.routes import router as chatbot_router
 from pdfsummarizer.routes import router as pdf_router
 from routes import performance, users, courses, department, dashboard, test, resources, study_group, study_timetable
 from auth import routes
+from database import models
+from database.db import Base, engine
+
+
+Base.metadata.create_all(bind=engine)
+
+
 app = FastAPI(
     title="📚 Spoudazo API",
     description="Smarter Learning for Smarter Students",
@@ -11,8 +18,8 @@ app = FastAPI(
 )
 
 origins = [
-    "http://localhost:3000",      # React dev server
-    "http://localhost:5173",      # Vite dev server
+    "http://localhost:3000",      
+    "http://localhost:5173",     
 ]
 
 app.add_middleware(
